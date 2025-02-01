@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-devops-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-devops-website
+  template:
+    metadata:
+      labels:
+        app: my-devops-website
+    spec:
+      containers:
+      - name: my-devops-website
+        image: your-dockerhub-username/my-devops-website:latest
+        ports:
+        - containerPort: 80
